@@ -5,9 +5,10 @@ function Book(title, author, pages, read) {
 	this.author = author
 	this.pages = pages
 	this.read = read
-	this.info = function () {
-		return `${title} by ${author}, ${pages} pages, ${read}`
-	}
+}
+
+Book.prototype.info = function () {
+	return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -15,4 +16,14 @@ function addBookToLibrary(title, author, pages, read) {
 	myLibrary.push(book)
 }
 
-console.table(myLibrary)
+addBookToLibrary('yo', 'jo', '298', false)
+addBookToLibrary('maybe', 'jesys', '290', true)
+addBookToLibrary('lol', 'jesys', '290', true)
+
+myLibrary.forEach((element, index) => {
+	const newDiv = document.createElement('div')
+	newDiv.classList.add('card')
+	const container = document.querySelector('.container')
+	container.appendChild(newDiv)
+	newDiv.textContent = myLibrary[index].info()
+})
