@@ -33,28 +33,49 @@ addBookToLibrary('Petit noel brun', 'Carrel Moten', '1290', true)
 
 const container = document.querySelector('.container')
 
+function bookContent(index) {
+	const newDiv = document.createElement('div')
+	newDiv.classList.add('card')
+
+	container.appendChild(newDiv)
+
+	const p1 = document.createElement('p')
+	p1.textContent = `Title: ${myLibrary[index].title}`
+	newDiv.appendChild(p1)
+
+	const p2 = document.createElement('p')
+	p2.textContent = `Author: ${myLibrary[index].author}`
+	newDiv.appendChild(p2)
+
+	const p3 = document.createElement('p')
+	p3.textContent = `Pages: ${myLibrary[index].pages}`
+	newDiv.appendChild(p3)
+
+	const p4 = document.createElement('p')
+	p4.textContent = `Read? : ${myLibrary[index].read}`
+	newDiv.appendChild(p4)
+
+	const deleteBtn = document.createElement('button')
+	deleteBtn.classList.add('delete-btn')
+	deleteBtn.classList.add(index)
+	deleteBtn.setAttribute('type', 'button')
+	deleteBtn.textContent = 'Remove'
+	newDiv.appendChild(deleteBtn)
+
+	deleteBtn.addEventListener('click', () => {
+		const node = deleteBtn.parentNode.firstChild.textContent.slice(7)
+		const nodeIndex = myLibrary.findIndex((book) => book.title === node)
+		myLibrary.splice(nodeIndex, 1)
+
+		console.table(myLibrary)
+
+		deleteBtn.parentNode.remove()
+	})
+}
+
 function displayBook() {
 	myLibrary.forEach((element, index) => {
-		const newDiv = document.createElement('div')
-		newDiv.classList.add('card')
-
-		container.appendChild(newDiv)
-
-		const p1 = document.createElement('p')
-		p1.textContent = `Title: ${myLibrary[index].title}`
-		newDiv.appendChild(p1)
-
-		const p2 = document.createElement('p')
-		p2.textContent = `Author: ${myLibrary[index].author}`
-		newDiv.appendChild(p2)
-
-		const p3 = document.createElement('p')
-		p3.textContent = `Pages: ${myLibrary[index].pages}`
-		newDiv.appendChild(p3)
-
-		const p4 = document.createElement('p')
-		p4.textContent = `Read? : ${myLibrary[index].read}`
-		newDiv.appendChild(p4)
+		bookContent(index)
 	})
 }
 
@@ -83,15 +104,12 @@ addBtn.addEventListener('click', () => {
 	const pages = formBook.elements[2].value
 	const read = formBook.elements.read.value
 
-	console.log(read)
-
 	addBookToLibrary(title, author, pages, read)
 
-	// Reset display
+	// Return to display
 	formTransparent.classList.remove('blur-and-form')
 
-	while (container.firstChild) {
-		container.removeChild(container.firstChild)
-	}
-	displayBook()
+	// Add Book To Display
+	const myLibraryI = myLibrary.length - 1
+	bookContent(myLibraryI)
 })

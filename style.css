@@ -58,7 +58,8 @@ body {
 	padding: 0.5rem 0;
 }
 
-.new-book-btn {
+.new-book-btn,
+.delete-btn {
 	background-color: rgba(177, 122, 21, 0.536);
 
 	font-size: 1.2rem;
@@ -67,6 +68,17 @@ body {
 
 	padding: 1rem 2rem;
 	border-radius: 0.5rem;
+}
+
+.delete-btn {
+	background-color: rgba(94, 98, 43, 0.618);
+	font-size: 0.8rem;
+	font-weight: 600;
+
+	padding: 0.5rem 1rem;
+	margin-top: 0.5rem;
+
+	float: right;
 }
 
 .form-transparent {
