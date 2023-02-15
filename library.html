@@ -11,6 +11,46 @@
 	</head>
 
 	<body>
-		<div class="container"></div>
+		<div class="form-transparent">
+			<form action="" method="">
+				<div class="info">
+					<label for="title">Title:</label>
+					<input type="text" id="title" name="title" />
+				</div>
+				<div class="info">
+					<label for="author">Author:</label>
+					<input type="text" id="author" name="author" />
+				</div>
+				<div class="info">
+					<label for="pages">Number of pages:</label>
+					<input
+						type="number"
+						id="pages"
+						name="pages"
+						min="0"
+						max="7500"
+						step="10"
+					/>
+				</div>
+				<fieldset>
+					<label for="read">Read ?</label>
+					<input type="checkbox" id="read" name="read" value="true" />
+				</fieldset>
+				<div>
+					<div></div>
+					<div class="btnForm">
+						<button type="button" class="btnAdd addBtn">ADD</button>
+						<button type="button" class="btnAdd cancel">Cancel</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<div class="container"></div>
+			<div>
+				<button class="new-book-btn" type="button">NEW BOOK</button>
+			</div>
+		</div>
 	</body>
 </html>

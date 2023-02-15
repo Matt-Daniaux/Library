@@ -1,0 +1,191 @@
+* {
+	font-family: Helvetica, Arial, sans-serif;
+	color: white;
+
+	border: 0px solid greenyellow;
+
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.page {
+	padding: 5rem 1rem;
+	min-height: 100vh;
+
+	background-color: rgb(17, 17, 31);
+
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+	align-items: center;
+
+	gap: 3rem;
+}
+
+.container {
+	width: 80%;
+	height: 70%;
+
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-template-rows: repeat(auto-fill, minmax(250px, 1fr));
+
+	gap: 2rem;
+}
+
+.card {
+	padding: 2rem;
+
+	background: linear-gradient(
+		rgba(14, 88, 74, 0.618),
+		rgba(177, 122, 21, 0.406)
+	);
+
+	border-radius: 15px;
+	border: 20px solid rgba(255, 255, 255, 0.147);
+
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.card p {
+	color: rgba(255, 255, 255, 0.695);
+	margin: 0;
+	padding: 0.5rem 0;
+}
+
+.new-book-btn {
+	background-color: rgba(177, 122, 21, 0.536);
+
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: rgb(216, 255, 248);
+
+	padding: 1rem 2rem;
+	border-radius: 0.5rem;
+}
+
+.form-transparent {
+	height: 100vh;
+	width: 100vw;
+
+	position: absolute;
+	background: transparent;
+	z-index: -1;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.blur-and-form {
+	background-color: rgba(107, 104, 82, 0.85);
+	z-index: 10;
+}
+
+/* Form position */
+
+form {
+	/* display: none; */
+	background-color: rgb(28, 28, 42);
+
+	border-radius: 15px;
+
+	padding: 3rem;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+}
+
+form div,
+form fieldset {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 1rem;
+}
+
+label {
+	justify-self: flex-end;
+}
+
+input[type='checkbox'] {
+	appearance: none;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+
+	justify-self: flex-start;
+	align-self: center;
+
+	width: 1.3rem;
+	height: 1.3rem;
+	border-radius: 5px;
+	background-color: rgba(92, 232, 206, 0.218);
+
+	position: relative;
+}
+
+input[type='checkbox']::before {
+	content: '✔';
+	font-size: 1.5rem;
+	color: rgb(206, 113, 0);
+	visibility: hidden;
+
+	position: absolute;
+	bottom: 0px;
+	left: 6px;
+}
+
+input[type='checkbox']:checked::before {
+	visibility: visible;
+}
+
+fieldset {
+	padding: 0;
+	margin: 0;
+}
+
+/* Form style */
+
+label {
+	font-size: 1.6rem;
+	font-weight: 600;
+}
+
+input[type='text'],
+input[type='number'] {
+	background-color: rgba(92, 232, 206, 0.218);
+	min-width: 40ch;
+
+	border-radius: 10px;
+	padding: 0.5rem 1rem;
+
+	text-align: start;
+	font-size: 1.5rem;
+}
+
+input[type='text']:focus,
+input[type='number']:focus {
+	outline: none;
+}
+
+.btnForm {
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+}
+
+.btnForm .btnAdd {
+	padding: 0.5rem 4rem;
+	border-radius: 10px;
+	box-shadow: inset 0px 0px 10px 3px rgba(92, 232, 206, 0.8);
+
+	background-color: rgba(92, 232, 206, 0.5);
+
+	font-size: 1rem;
+	font-weight: 700;
+}
