@@ -75,10 +75,17 @@ cancel.addEventListener('click', () => {
 
 // Add btn
 const addBtn = document.querySelector('.addBtn')
+const formBook = document.querySelector('.form-add-book')
 
 addBtn.addEventListener('click', () => {
-	const title = 'lol'
-	addBookToLibrary(title)
+	const title = formBook.elements[0].value
+	const author = formBook.elements[1].value
+	const pages = formBook.elements[2].value
+	const read = formBook.elements.read.value
+
+	console.log(read)
+
+	addBookToLibrary(title, author, pages, read)
 
 	// Reset display
 	formTransparent.classList.remove('blur-and-form')
