@@ -14,6 +14,8 @@ Book.prototype.info = function () {
 			read: ${this.read}`
 }
 
+Book.prototype.readOrNot = function () {}
+
 function addBookToLibrary(title, author, pages, read) {
 	let readChoice = ''
 
@@ -51,13 +53,35 @@ function bookContent(index) {
 	p3.textContent = `Pages: ${myLibrary[index].pages}`
 	newDiv.appendChild(p3)
 
+	const readDiv = document.createElement('div')
+	readDiv.classList.add('read-div')
+	newDiv.appendChild(readDiv)
+
 	const p4 = document.createElement('p')
-	p4.textContent = `Read? : ${myLibrary[index].read}`
-	newDiv.appendChild(p4)
+	p4.textContent = `Read? :`
+	readDiv.appendChild(p4)
+
+	const toggleReadBtn = document.createElement('button')
+	toggleReadBtn.classList.add('read-btn')
+	toggleReadBtn.setAttribute('type', 'button')
+	readDiv.appendChild(toggleReadBtn)
+	if (myLibrary[index].read === 'Yes') {
+		toggleReadBtn.textContent = 'Yes'
+	} else {
+		toggleReadBtn.textContent = 'No'
+	}
+	toggleReadBtn.addEventListener('click', () => {
+		if (myLibrary[index].read === 'Yes') {
+			myLibrary[index].read = 'No'
+			toggleReadBtn.textContent = 'No'
+		} else {
+			toggleReadBtn.textContent = 'Yes'
+			myLibrary[index].read = 'Yes'
+		}
+	})
 
 	const deleteBtn = document.createElement('button')
 	deleteBtn.classList.add('delete-btn')
-	deleteBtn.classList.add(index)
 	deleteBtn.setAttribute('type', 'button')
 	deleteBtn.textContent = 'Remove'
 	newDiv.appendChild(deleteBtn)
@@ -66,8 +90,6 @@ function bookContent(index) {
 		const node = deleteBtn.parentNode.firstChild.textContent.slice(7)
 		const nodeIndex = myLibrary.findIndex((book) => book.title === node)
 		myLibrary.splice(nodeIndex, 1)
-
-		console.table(myLibrary)
 
 		deleteBtn.parentNode.remove()
 	})

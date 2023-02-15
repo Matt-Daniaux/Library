@@ -72,13 +72,29 @@ body {
 
 .delete-btn {
 	background-color: rgba(94, 98, 43, 0.618);
-	font-size: 0.8rem;
+	font-size: 1rem;
 	font-weight: 600;
 
 	padding: 0.5rem 1rem;
-	margin-top: 0.5rem;
+	margin-top: 1rem;
 
 	float: right;
+}
+
+.read-div {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	justify-items: flex-start;
+}
+
+.read-btn {
+	background-color: rgba(255, 255, 255, 0.168);
+	margin: 0 0 0 1rem;
+	padding: 0.2rem 01rem;
+
+	border-radius: 15px;
+	font-size: 1.5rem;
+	font-weight: 700;
 }
 
 .form-transparent {
